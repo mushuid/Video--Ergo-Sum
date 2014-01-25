@@ -1,30 +1,34 @@
 using UnityEngine;
 using System.Collections;
 
-public class Flying:Status {
+public class Turtle:Status {
 
+		int stateValue = 4;
         // Use this for initialization
         void otherMove(CharControl character);
         void jump(CharControl character);
         bool left(CharControl character)
 		{
-			 -= velocity.X*0.5;
-			return true;
+			return false;
 		}
-        bool right(CharControl character);
+        bool right(CharControl character)
 		{
-			 += velocity.X*0.5;
-			return true;
+			return false;
 		}
-        void up(CharacterController character);
-        void down(CharacterController character);
-        void fixedUpdate(CharacterController character);
-        void onEnter(CharacterController character)
+        void up(CharController character);
+        void down(CharController character);
+        void fixedUpdate(CharController character);
+        void onEnter(CharController character)
 		{
-			isImmortal = false
-		}
-		void onExit(CharacterController character)
-		{
+			character.speed *= 0.5
 			isImmortal = true;
 		}
-		bool isDamaging(CharacterController character);
+		void onExit(CharController character)
+		{
+			character.speed *= 2;
+			isImmortal = false;
+		}
+		bool isDamaging(CharController character)
+		{
+			return false;
+		}

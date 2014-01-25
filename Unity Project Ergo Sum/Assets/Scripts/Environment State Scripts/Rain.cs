@@ -6,8 +6,8 @@ public class Rain:Environment {
 	rainTimer = 0;
 	
 	// Update is called once per frame
-	void Update (CharacterController character);
-	void FixedUpdate(CharacterController character)
+	void Update (CharController character);
+	void FixedUpdate(CharController character)
 	{
 		rainTimer++
 		if(RainTimer >= 60)
@@ -16,7 +16,10 @@ public class Rain:Environment {
 				rainTimer = 0;
 			}
 	}
-	void onEnter(CharacterController character);
-	void onExit(CharacterController character);
-	bool isDamaging(CharacterController character);
+	void onEnter(CharController character);
+	void onExit(CharController character);
+	bool isDamaging(CharController character)
+	{
+		return true;
+	}
 }

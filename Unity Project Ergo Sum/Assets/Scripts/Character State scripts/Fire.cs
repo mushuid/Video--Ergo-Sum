@@ -1,24 +1,25 @@
 using UnityEngine;
 using System.Collections;
 
-public interface Status {
+public class Fire:Status {
+	
+		int stateValue = 3
 		int fireCounter = 0;
+		
         // Use this for initialization
         void otherMove(CharControl character);
-        void jump(CharControl character);
+        bool jump(CharControl character);
         bool left(CharControl character)
 		{
-			 -= velocity.X*1.5;
-			return true;
+			return false;
 		}
-        bool right(CharControl character);
+        bool right(CharControl character)
 		{
-			 += velocity.X*1.5;
-			return true;
+			return false;
 		}
-        void up(CharacterController character);
-        void down(CharacterController character);
-        void fixedUpdate(CharacterController character)
+        void up(CharController character);
+        void down(CharController character);
+        void fixedUpdate(CharController character)
 		{
 			fireCounter ++;
 			if(fireCounter >=60)
@@ -27,8 +28,17 @@ public interface Status {
 					fireCounter = 0;
 				}
 		}
-        void onEnter(CharacterController character);
-		void onExit(CharacterController character);
-		bool isDamaging(CharacterController character);
+        void onEnter(CharController character);
+		{
+			speed *= 2f;
+		}
+		void onExit(CharController character);
+		{
+			speed *= 0.5f;
+		}
+		bool isDamaging(CharController character)
+		{
+			return true;
+		}
 
 }
