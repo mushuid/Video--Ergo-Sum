@@ -13,5 +13,6 @@ public interface Status {
 	void fixedUpdate(CharacterController character);
 	void onEnter(CharacterController character);
 	void onExit(CharacterController character);
+	void isDamaging(CharacterController character);
 
 }
