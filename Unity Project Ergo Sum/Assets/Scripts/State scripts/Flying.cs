@@ -4,11 +4,11 @@ using System.Collections;
 public class Flying:Status {
 
         // Use this for initialization
-        void otherMove(CharacterController character);
-        void jump(CharacterController character);
-        bool left(CharacterController character)
+        void otherMove(CharControl character);
+        void jump(CharControl character);
+        bool left(CharControl character)
 		{return false}
-        bool right(CharacterController character);
+        bool right(CharControl character);
 		{return false}
         void up(CharacterController character);
         void down(CharacterController character);

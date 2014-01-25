@@ -4,14 +4,14 @@ using System.Collections;
 public class Flying:Status {
 
         // Use this for initialization
-        void otherMove(CharacterController character);
-        void jump(CharacterController character);
-        bool left(CharacterController character)
+        void otherMove(CharControl character);
+        void jump(CharControl character);
+        bool left(CharControl character)
 		{
 			 -= velocity.X*0.5;
 			return true;
 		}
-        bool right(CharacterController character);
+        bool right(CharControl character);
 		{
 			 += velocity.X*0.5;
 			return true;

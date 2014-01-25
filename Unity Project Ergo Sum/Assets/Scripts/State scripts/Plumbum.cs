@@ -4,16 +4,16 @@ using System.Collections;
 public class Plumbum:Status {
 
         // Use this for initialization
-        void otherMove(CharacterController character);
-        void jump(CharacterController character)
+        void otherMove(CharControl character);
+        void jump(CharControl character)
 		{
 			return null;
 		}
-        bool left(CharacterController character)
+        bool left(CharControl character)
 		{
 			return false;
 		}
-        bool right(CharacterController character);
+        bool right(CharControl character);
 		{
 			return false;
 		}
