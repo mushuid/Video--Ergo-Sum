@@ -12,5 +12,6 @@ public interface Status {
 	void down(CharacterController character);
 	void fixedUpdate(CharacterController character);
 	void onEnter(CharacterController character);
+	void onExit (CharacterController character);
 
 }
