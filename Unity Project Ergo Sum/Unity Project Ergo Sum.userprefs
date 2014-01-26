@@ -1,9 +1,15 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Status.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\CharacterScript.cs">
     <Files>
-      <File FileName="Assets\Scripts\CharacterController.cs" Line="8" Column="30" />
-      <File FileName="Assets\Scripts\Status.cs" Line="14" Column="46" />
+      <File FileName="Assets\Scripts\CharController.cs" Line="23" Column="19" />
+      <File FileName="Assets\Scripts\CharacterScript.cs" Line="27" Column="1" />
+      <File FileName="Assets\Scripts\Character State scripts\Fire.cs" Line="5" Column="1" />
+      <File FileName="Assets\Scripts\Character State scripts\Flying.cs" Line="14" Column="1" />
+      <File FileName="Assets\Scripts\Character State scripts\Plumbum.cs" Line="33" Column="28" />
+      <File FileName="Assets\Scripts\Character State scripts\Turtle.cs" Line="10" Column="3" />
+      <File FileName="Assets\Scripts\Status.cs" Line="18" Column="2" />
+      <File FileName="Assets\Scripts\Environment State Scripts\Rain.cs" Line="9" Column="42" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

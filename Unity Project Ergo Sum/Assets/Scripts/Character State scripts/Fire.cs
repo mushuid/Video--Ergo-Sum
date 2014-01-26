@@ -1,46 +1,50 @@
 using UnityEngine;
 using System.Collections;
 
+
 public class Fire:Status {
 	
 		int stateValue = 3;
 		int fireCounter = 0;
 		
         // Use this for initialization
-        void otherMove(CharControl character);
-        bool jump(CharControl character);
-        bool left(CharControl character)
+	public void otherMove(CharController character){}
+	public bool jump(CharController character)
+	{
+		return false;
+	}
+	public bool left(CharController character)
 		{
 			return false;
 		}
-        bool right(CharControl character)
+	public bool right(CharController character)
 		{
 			return false;
 		}
-        void up(CharController character);
-        void down(CharController character);
-        void fixedUpdate(CharController character)
+	public void up(CharController character){}
+	public void down(CharController character){}
+	public void fixedUpdate(CharController character)
 		{
 			fireCounter ++;
 			if(fireCounter >=60)
 				{
-					deathTimer++;
+					character.deathTimer++;
 					fireCounter = 0;
 				}
 		}
-        void onEnter(CharController character)
+	public void onEnter(CharController character)
 		{
-			speed *= 2f;
+			character.speed *= 2f;
 		}
-		void onExit(CharController character)
+	public void onExit(CharController character)
 		{
-			speed *= 0.5f;
+			character.speed *= 0.5f;
 		}
-		bool isDamaging(CharController character)
+	public bool isDamaging(CharController character)
 		{
 			return true;
 		}
-		int getStatusType(){
+	public int getStatusType(){
 			return stateValue;
 		}
 

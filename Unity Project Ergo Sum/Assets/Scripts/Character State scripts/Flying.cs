@@ -7,8 +7,8 @@ public class Flying:Status {
 		int jumpDelay = 0;
 		float jumping = 2f;
         // Use this for initialization
-        void otherMove(CharControl character);
-        bool jump(CharControl character)
+	public void otherMove(CharController character){}
+	public bool jump(CharController character)
 		{
 			if(jumpDelay == 0 || jumping < 8f){
 				character.controller.Move(new Vector3(0, character.jumpPower/jumping, 0));
@@ -17,16 +17,16 @@ public class Flying:Status {
 				
 			return true;
 		}
-        bool left(CharControl character){
+	public bool left(CharController character){
 				return false;
 		}
-        bool right(CharControl character)
+	public bool right(CharController character)
 			{
 				return false;
 			}
-			void up(CharController character);
-			void down(CharController character);
-        void fixedUpdate(CharController character)
+	public void up(CharController character){}
+	public void down(CharController character){}
+	public void fixedUpdate(CharController character)
 		{
 			if(jumpDelay > 0)
 				jumpDelay++;
@@ -36,19 +36,19 @@ public class Flying:Status {
 				jumping = 2f;
 			}
 		}
-        void onEnter(CharController character)
+	public void onEnter(CharController character)
 		{
-			gravity*=.5;
+			character.gravity *= .5f;
 		}
-		void onExit(CharController character)
+	public void onExit(CharController character)
 		{
-			gravity*=2;
+			character.gravity *= 2f;
 		}
-		bool isDamaging(CharController character)
+	public bool isDamaging(CharController character)
 		{
 			return false;
 		}
-		int getStatusType(){
+	public int getStatusType(){
 			return stateValue;
 		}
 

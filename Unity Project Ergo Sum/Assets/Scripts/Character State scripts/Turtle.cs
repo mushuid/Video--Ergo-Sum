@@ -5,33 +5,35 @@ public class Turtle:Status {
 
 		int stateValue = 4;
         // Use this for initialization
-        void otherMove(CharControl character);
-        void jump(CharControl character);
-        bool left(CharControl character)
+	public void otherMove(CharController character){}
+	public bool jump(CharController character){
+		return false;}
+	public bool left(CharController character)
 		{
 			return false;
 		}
-        bool right(CharControl character)
+	public bool right(CharController character)
 		{
 			return false;
 		}
-        void up(CharController character);
-        void down(CharController character);
-        void fixedUpdate(CharController character);
-        void onEnter(CharController character)
+	public void up(CharController character){}
+	public void down(CharController character){}
+	public void fixedUpdate(CharController character){}
+	public void onEnter(CharController character)
 		{
-		character.speed *= 0.5;
-			isImmortal = true;
+		character.speed *= 0.5f;
+			character.isImmortal = true;
 		}
-		void onExit(CharController character)
+	public void onExit(CharController character)
 		{
-			character.speed *= 2;
-			isImmortal = false;
+			character.speed *= 2f;
+			character.isImmortal = false;
 		}
-		bool isDamaging(CharController character)
+	public bool isDamaging(CharController character)
 		{
 			return false;
 		}
-	int getStatusType(){
+	public int getStatusType(){
 		return stateValue;
 	}
+}

@@ -46,7 +46,13 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\CharacterController.cs" />
+     <Compile Include="Assets\Scripts\CharController.cs" />
+     <Compile Include="Assets\Scripts\Character State scripts\Fire.cs" />
+     <Compile Include="Assets\Scripts\Character State scripts\Flying.cs" />
+     <Compile Include="Assets\Scripts\Character State scripts\Plumbum.cs" />
+     <Compile Include="Assets\Scripts\Character State scripts\Turtle.cs" />
+     <Compile Include="Assets\Scripts\CharacterScript.cs" />
+     <Compile Include="Assets\Scripts\Environment State Scripts\Rain.cs" />
      <Compile Include="Assets\Scripts\Environment.cs" />
      <Compile Include="Assets\Scripts\Status.cs" />
   </ItemGroup>

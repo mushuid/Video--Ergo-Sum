@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
-public class CharacterScript : CharControl {
+public class CharacterScript : CharController {
 
 
 	// Use this for initialization
@@ -9,11 +10,11 @@ public class CharacterScript : CharControl {
 
 	// Update is called once per frame
 
-	override void Update () {
-		ArrayList<Status> newStatuses = grabStatuses();
+	void Update () {
+		ArrayList newStatuses = grabStatuses();
 		handleOnEnterandExit(currentStatuses, newStatuses);
 		currentStatuses = newStatuses;
-		if((anyStatusesDamaging() > deathTimer >= 4) && !isImmortal){
+		if(anyStatusesDamaging() && deathTimer >= 4 && !isImmortal){
 			die();
 		}
 		else{
@@ -22,31 +23,31 @@ public class CharacterScript : CharControl {
 		bool jumpchanged = false;
 		bool leftchanged = false;
 		bool rightchanged = false;
-		foreach (Status status in currentStatuses){
+		foreach (Object status in currentStatuses){
 			if(Input.GetKeyDown(KeyCode.Space)){
-				bool temp = status.jump(this);
+				bool temp = (Status)status.jump(this);
 				if(temp){
 					jumpchanged = true;
 				}
 			}
 			if(Input.GetKeyDown(KeyCode.LeftArrow)){
-				bool temp = status.left(this);
+				bool temp = (Status)status.left(this);
 				if(temp){
 					leftchanged = true;
 				}
 			}
 			if(Input.GetKeyDown(KeyCode.RightArrow)){
-				bool temp = status.right(this);
+				bool temp = (Status)status.right(this);
 				if(temp){
 					rightchanged = true;
 				}
 			}
-			if(Input.GetKeyDown(KeyCode.DownArrow)){
-				status.down();
+			/*if(Input.GetKeyDown(KeyCode.DownArrow)){
+				(Status)status.down();
 			}
 			if(Input.GetKeyDown(KeyCode.RightShift)){
-				status.otherMove();
-			}
+				(Status)status.otherMove();
+			}*/
 		}
 		if(Input.GetKeyDown(KeyCode.Space) && !jumpchanged){
 
@@ -83,9 +84,9 @@ public class CharacterScript : CharControl {
 			status.fixedUpdate(this);
 		}
 	}
-	private void handleOnEnterandExit(ArrayList<Status> old, ArrayList<Status> newer){
-		ArrayList<Status> added = new ArrayList<Status>();
-		ArrayList<Status> removed = new ArrayList<Status>();
+	private void handleOnEnterandExit(ArrayList old, ArrayList newer){
+		ArrayList added = new ArrayList();
+		ArrayList removed = new ArrayList();
 		foreach(Status a in old){
 			bool isNotInNew = true;
 			foreach(Status b in newer){
@@ -115,8 +116,8 @@ public class CharacterScript : CharControl {
 			a.onEnter(this);
 		}
 	}
-	override ArrayList<Status> grabStatuses(){
-		ArrayList<Status> newList = new ArrayList<Status>();
+	public override ArrayList grabStatuses(){
+		ArrayList newList = new ArrayList();
 	}
 	private bool anyStatusesDamaging(){
 		foreach (Status status in currentStatuses){
