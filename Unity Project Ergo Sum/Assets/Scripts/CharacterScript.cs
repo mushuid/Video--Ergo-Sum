@@ -133,6 +133,4 @@ public class CharacterScript : CharControl {
 			Destroy(gameObject);
 		}
 	}
-	public void jump(){
-	}
 }
