@@ -4,15 +4,15 @@ using System.Collections;
 public interface Status {
 
 	// Use this for initialization
-	void otherMove(CharacterController character);
-	void jump(CharacterController character);
-	bool left(CharacterController character);
-	bool right(CharacterController character);
-	void up(CharacterController character);
-	void down(CharacterController character);
-	void fixedUpdate(CharacterController character);
-	void onEnter(CharacterController character);
-	void onExit(CharacterController character);
-	bool isDamaging(CharacterController character);
-
+	void otherMove(CharControl character);
+	void jump(CharControl character);
+	bool left(CharControl character);
+	bool right(CharControl character);
+	void up(CharControl character);
+	void down(CharControl character);
+	void fixedUpdate(CharControl character);
+	void onEnter(CharControl character);
+	void onExit(CharControl character);
+	bool isDamaging(CharControl character);
+	int getStatusType();
 }

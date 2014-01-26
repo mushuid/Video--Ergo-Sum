@@ -5,6 +5,7 @@ public abstract class CharControl : MonoBehaviour {
 	public const float jumpPower = 1.0f;
 	
 	public int health;
+	public float jumping;
 	public string name;
 	public int deathTimer;
 	public bool onGround;
@@ -19,6 +20,7 @@ public abstract class CharControl : MonoBehaviour {
 	void Start (){
 		health = 3;
 		deathTimer = 0.0f;
+		jumping = 2f;
 		onGround = true;
 		speed = 4.0f;
 		gravity = 1.0f;
@@ -36,5 +38,6 @@ public abstract class CharControl : MonoBehaviour {
 	public void left();
 	public void right();
 	public void jump();
+	public ArrayList<Status> grabStatuses();
 
 }

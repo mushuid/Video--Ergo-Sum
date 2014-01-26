@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Fire:Status {
 	
-		int stateValue = 3
+		int stateValue = 3;
 		int fireCounter = 0;
 		
         // Use this for initialization
@@ -28,17 +28,20 @@ public class Fire:Status {
 					fireCounter = 0;
 				}
 		}
-        void onEnter(CharController character);
+        void onEnter(CharController character)
 		{
 			speed *= 2f;
 		}
-		void onExit(CharController character);
+		void onExit(CharController character)
 		{
 			speed *= 0.5f;
 		}
 		bool isDamaging(CharController character)
 		{
 			return true;
+		}
+		int getStatusType(){
+			return stateValue;
 		}
 
 }

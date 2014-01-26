@@ -10,18 +10,22 @@ public class Flying:Status {
         void otherMove(CharControl character);
         bool jump(CharControl character)
 		{
-			if(jumpDelay == 0 || jumping < 8f)
-				character.controller.Move(new Vector3(0, character.jumpPower/jumping, 0);
+			if(jumpDelay == 0 || jumping < 8f){
+				character.controller.Move(new Vector3(0, character.jumpPower/jumping, 0));
 				jumping *= 2;
+			}
 				
 			return true;
 		}
-        bool left(CharControl character)
-		{return false}
-        bool right(CharControl character);
-		{return false}
-        void up(CharController character);
-        void down(CharController character);
+        bool left(CharControl character){
+				return false;
+		}
+        bool right(CharControl character)
+			{
+				return false;
+			}
+			void up(CharController character);
+			void down(CharController character);
         void fixedUpdate(CharController character)
 		{
 			if(jumpDelay > 0)
@@ -32,18 +36,20 @@ public class Flying:Status {
 				jumping = 2f;
 			}
 		}
-		}
         void onEnter(CharController character)
 		{
 			gravity*=.5;
 		}
-		void onExit(CharController character);
+		void onExit(CharController character)
 		{
 			gravity*=2;
 		}
 		bool isDamaging(CharController character)
 		{
 			return false;
+		}
+		int getStatusType(){
+			return stateValue;
 		}
 
 }

@@ -20,7 +20,7 @@ public class Turtle:Status {
         void fixedUpdate(CharController character);
         void onEnter(CharController character)
 		{
-			character.speed *= 0.5
+		character.speed *= 0.5;
 			isImmortal = true;
 		}
 		void onExit(CharController character)
@@ -32,3 +32,6 @@ public class Turtle:Status {
 		{
 			return false;
 		}
+	int getStatusType(){
+		return stateValue;
+	}
