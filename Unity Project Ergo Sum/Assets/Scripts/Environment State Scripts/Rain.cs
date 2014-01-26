@@ -6,19 +6,19 @@ public class Rain:Environment {
 	int rainTimer = 0;
 	
 	// Update is called once per frame
-	void Update (CharController character){}
-	void FixedUpdate(CharController character)
+	public void Update (CharController character){}
+	public void FixedUpdate(CharController character)
 	{
 		rainTimer++;
-		if(RainTimer >= 60)
+		if(rainTimer >= 60)
 			{
-				deathTimer++;
+				character.deathTimer++;
 				rainTimer = 0;
 			}
 	}
-	void onEnter(CharController character){}
-	void onExit(CharController character){}
-	bool isDamaging(CharController character)
+	public void onEnter(CharController character){}
+	public void onExit(CharController character){}
+	public bool isDamaging(CharController character)
 	{
 		return true;
 	}

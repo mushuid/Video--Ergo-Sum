@@ -4,7 +4,7 @@ using System.Collections;
 public class Plumbum:Status {
 		
 	int stateValue = 2;
-	float tempJump = 0f;
+
         // Use this for initialization
 	public void otherMove(CharController character){}
 	public bool jump(CharController character)

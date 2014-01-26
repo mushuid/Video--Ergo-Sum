@@ -11,7 +11,7 @@ public class CharacterScript : CharController {
 	// Update is called once per frame
 
 	void Update () {
-		ArrayList newStatuses = grabStatuses();
+		List<Status> newStatuses = grabStatuses();
 		handleOnEnterandExit(currentStatuses, newStatuses);
 		currentStatuses = newStatuses;
 		if(anyStatusesDamaging() && deathTimer >= 4 && !isImmortal){
@@ -23,21 +23,21 @@ public class CharacterScript : CharController {
 		bool jumpchanged = false;
 		bool leftchanged = false;
 		bool rightchanged = false;
-		foreach (Object status in currentStatuses){
+		foreach (Status status in currentStatuses){
 			if(Input.GetKeyDown(KeyCode.Space)){
-				bool temp = (Status)status.jump(this);
+				bool temp = status.jump(this);
 				if(temp){
 					jumpchanged = true;
 				}
 			}
 			if(Input.GetKeyDown(KeyCode.LeftArrow)){
-				bool temp = (Status)status.left(this);
+				bool temp = status.left(this);
 				if(temp){
 					leftchanged = true;
 				}
 			}
 			if(Input.GetKeyDown(KeyCode.RightArrow)){
-				bool temp = (Status)status.right(this);
+				bool temp = status.right(this);
 				if(temp){
 					rightchanged = true;
 				}
@@ -84,13 +84,13 @@ public class CharacterScript : CharController {
 			status.fixedUpdate(this);
 		}
 	}
-	private void handleOnEnterandExit(ArrayList old, ArrayList newer){
-		ArrayList added = new ArrayList();
-		ArrayList removed = new ArrayList();
+	private void handleOnEnterandExit(List<Status> old, List<Status> newer){
+		List<Status> added = new List<Status>();
+		List<Status> removed = new List<Status>();
 		foreach(Status a in old){
 			bool isNotInNew = true;
 			foreach(Status b in newer){
-				if(b.getStatusType == a.getStatusType){
+				if(b.getStatusType() == a.getStatusType()){
 					isNotInNew = false;
 				}
 			}
@@ -101,11 +101,11 @@ public class CharacterScript : CharController {
 		foreach(Status a in newer){
 			bool isNotInOld = true;
 			foreach(Status b in old){
-				if(b.getStatusType == a.getStatusType){
+				if(b.getStatusType() == a.getStatusType()){
 					isNotInOld = false;
 				}
 			}
-			if(isNotInNew){
+			if(isNotInOld){
 				added.Add(a);
 			}
 		}
@@ -116,18 +116,19 @@ public class CharacterScript : CharController {
 			a.onEnter(this);
 		}
 	}
-	public override ArrayList grabStatuses(){
-		ArrayList newList = new ArrayList();
+	public override List<Status> grabStatuses(){
+		List<Status> newList = new List<Status>();
+		return newList;
 	}
 	private bool anyStatusesDamaging(){
 		foreach (Status status in currentStatuses){
-			if(status.isDamaging){
+			if(status.isDamaging(this)){
 				return true;
 			}
 		}
 		return false;
 	}
-	public void die(){
+	public override void die(){
 		health -= 1;
 
 		if (health == 0){

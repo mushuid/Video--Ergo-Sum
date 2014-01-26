@@ -6,9 +6,9 @@ public interface Environment {
 
 	
 	// Update is called once per frame
-	void Update (CharacterController character);
-	void FixedUpdate(CharacterController character);
-	void onEnter(CharacterController character);
-	void onExit(CharacterController character);
-	bool isDamaging(CharacterController character);
+	void Update (CharController character);
+	void FixedUpdate(CharController character);
+	void onEnter(CharController character);
+	void onExit(CharController character);
+	bool isDamaging(CharController character);
 }

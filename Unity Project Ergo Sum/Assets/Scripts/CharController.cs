@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using System.Collections.Generic;
 public abstract class CharController : MonoBehaviour {
 	public float jumpPower;	
 	public int health;
 	public float jumping;
-	public string name;
+//	public string name;
 	public int deathTimer;
 	public bool onGround;
 	public bool isImmortal;
@@ -13,7 +13,8 @@ public abstract class CharController : MonoBehaviour {
 	public float speed;
 	public float gravity;
 	public CharacterController controller;
-	public ArrayList currentStatuses;
+
+	public List<Status> currentStatuses;
 	public Environment environment;
 	// Use this for initialization
 	void Start (){
@@ -25,19 +26,17 @@ public abstract class CharController : MonoBehaviour {
 		gravity = 1.0f;
 		jumpPower = 1.0f;
 		veryDense = false;
-		currentStatuses = new ArrayList();
+		currentStatuses = new List<Status>();
 		environment = null;
 		controller = GetComponent<CharacterController>();
 	}
 	
 	// Update is called once per frame
 
-	public void die(){
-		Destroy (gameObject);
-	}
+	public abstract void die();
 	public abstract void left();
 	public abstract void right();
 	public abstract void jump();
-	public abstract ArrayList grabStatuses();
+	public abstract List<Status> grabStatuses();
 
 }
